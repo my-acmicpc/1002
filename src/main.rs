@@ -49,12 +49,15 @@ fn main() {
     for _ in 0..test_case_count {
         let mut line = String::new();
         io::stdin().read_line(&mut line).unwrap();
-        let vec = line
-            .trim()
-            .split(' ')
-            .flat_map(|x| x.parse::<i64>())
-            .collect::<Vec<_>>();
-        let result = solution(vec[0], vec[1], vec[2], vec[3], vec[4], vec[5]);
+        let mut iter = line.trim().split(' ').flat_map(|x| x.parse::<i64>());
+        let result = solution(
+            iter.next().unwrap(),
+            iter.next().unwrap(),
+            iter.next().unwrap(),
+            iter.next().unwrap(),
+            iter.next().unwrap(),
+            iter.next().unwrap(),
+        );
         println!("{}", result)
     }
 }
