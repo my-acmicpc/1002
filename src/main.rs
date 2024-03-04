@@ -49,7 +49,7 @@ fn main() {
     for _ in 0..test_case_count {
         let mut line = String::new();
         io::stdin().read_line(&mut line).unwrap();
-        let mut iter = line.trim().split(' ').flat_map(|x| x.parse::<i64>());
+        let mut iter = line.trim().split(' ').flat_map(&str::parse::<i64>);
         let result = solution(
             iter.next().unwrap(),
             iter.next().unwrap(),
